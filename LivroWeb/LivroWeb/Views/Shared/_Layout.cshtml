@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
+    <title>TecLine &mdash; Sistema</title>
+
+    <link rel="stylesheet" href="~/Content/dist/modules/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/dist/modules/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/Content/dist/modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css">
+
+    <link rel="stylesheet" href="~/Content/dist/modules/summernote/summernote-lite.css">
+    <link rel="stylesheet" href="~/Content/dist/modules/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="~/Content/dist/css/demo.css">
+    <link rel="stylesheet" href="~/Content/dist/css/style.css">
+    @Styles.Render("~/Content/dist/css")
+    @Scripts.Render("~/Script/modules")
+    @Scripts.Render("~/Script/js")
+
+</head>
+<body>
+    <header>
+        <div id="app">
+            <div class="main-wrapper">
+                <div class="navbar-bg"></div>
+                <nav class="navbar navbar-expand-lg main-navbar">
+                    <form class="form-inline mr-auto">
+                        <ul class="navbar-nav mr-3">
+                            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="ion ion-navicon-round"></i></a></li>
+                            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="ion ion-search"></i></a></li>
+                        </ul>
+                        <div class="search-element">
+                            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn" type="submit"><i class="ion ion-search"></i></button>
+                        </div>
+                    </form>
+                    <ul class="navbar-nav navbar-right">
+                        <li class="dropdown dropdown-list-toggle">
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
+                                <i class="ion ion-android-person d-lg-none"></i>
+                                <div class="d-sm-none d-lg-inline-block">Hi, Matheus</div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a href="profile.html" class="dropdown-item has-icon">
+                                    <i class="ion ion-android-person"></i> Profile
+                                </a>
+                                <a href="#" class="dropdown-item has-icon">
+                                    <i class="ion ion-log-out"></i> Logout
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="main-sidebar">
+                    <aside id="sidebar-wrapper">
+                        <div class="sidebar-brand">
+                            <a href="index.html">TecLine</a>
+                        </div>
+                        <div class="sidebar-user">
+                            <div class="sidebar-user-picture">
+                                <img alt="image" src="~/Content/dist/img/avatar/avatar-1.jpeg">
+                            </div>
+                            <div class="sidebar-user-details">
+                                <div class="user-name">Matheus</div>
+                                <div class="user-role">
+                                    Administrator
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="sidebar-menu">
+                            <li class="menu-header">Relatório</li>
+                            <li>
+                                <a href="@Url.Action("Index", "Home")"><i class="ion ion-speedometer"></i><span>Inicio</span></a>
+                            </li>
+
+                            <li class="menu-header">Telas</li>
+                            <li>
+                                <a href="#" class="has-dropdown"><i class="ion ion-flag"></i><span>Cliente</span></a>
+                                <ul class="menu-dropdown">
+                                    <li class="active">
+                                        <a href="@Url.Action("Index", "Livro")"><i class="ion ion-clipboard"></i><span>Cliente</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+
+
+
+    <script src="~/Scripts/modules/jquery.min.js"></script>
+    <script src="~/Scripts/modules/popper.js"></script>
+    <script src="~/Scripts/modules/tooltip.js"></script>
+    <script src="~/Scripts/modules/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/modules/nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="~/Scripts/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
+    <script src="~/Scripts/js/sa-functions.js"></script>
+
+    <script src="~/Scripts/modules/chart.min.js"></script>
+    <script src="~/Scripts/modules/summernote/summernote-lite.js"></script>
+
+    <script>
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                datasets: [{
+                    label: 'Statistics',
+                    data: [460, 458, 330, 502, 430, 610, 488],
+                    borderWidth: 2,
+                    backgroundColor: 'rgb(87,75,144)',
+                    borderColor: 'rgb(87,75,144)',
+                    borderWidth: 2.5,
+                    pointBackgroundColor: '#ffffff',
+                    pointRadius: 4
+                }]
+            },
+            options: {
+                legend: {
+                    display: false
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize: 150
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            display: false
+                        }
+                    }]
+                },
+            }
+        });
+    </script>
+    <script src="~/Scripts/js/scripts.js"></script>
+    <script src="~/Scripts/js/custom.js"></script>
+    <script src="~/Scripts/js/demo.js"></script>
+</body>
+</html>

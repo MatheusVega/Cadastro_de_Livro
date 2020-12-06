@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "Form";
+}
+
+@model LivroWeb.Models.Livro
+
+
+<div class="main-content">
+    <section class="section">
+        <h1 class="section-header"> Novo Cliente</h1>
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-12 col-sm-12">
+                @using (Html.BeginForm("Adiciona", "Livro", FormMethod.Post))
+                {
+                    <form asp-action="InserirCliente" method="post" class="needs-validation" novalidate="">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    @Html.LabelFor(u => u.Nome, htmlAttributes: new { @class = "control-label" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(u => u.Nome, new { htmlAttributes = new { @placeholder = "Nome", @class = "form-control" } })
+                                        @Html.ValidationMessageFor(u => u.Nome, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    @Html.LabelFor(u => u.Autor, htmlAttributes: new { @class = "control-label" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(u => u.Autor, new { htmlAttributes = new { @placeholder = "Autor", @class = "form-control" } })
+                                        @Html.ValidationMessageFor(u => u.Autor, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    @Html.LabelFor(u => u.Descricao, htmlAttributes: new { @class = "control-label" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(u => u.Descricao, new { htmlAttributes = new { @placeholder = "Descrição", @class = "form-control" } })
+                                        @Html.ValidationMessageFor(u => u.Descricao, "", new { @class = "text-danger" })
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    @Html.LabelFor(u => u.DataInicio, htmlAttributes: new { @class = "control-label" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(u => u.DataInicio, new { htmlAttributes = new { @placeholder = "Data Inicio", @class = "form-control" } })
+                                        @Html.ValidationMessageFor(u => u.DataInicio, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    @Html.LabelFor(u => u.DataFim, htmlAttributes: new { @class = "control-label" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(u => u.DataFim, new { htmlAttributes = new { @placeholder = "Data Fim", @class = "form-control" } })
+                                        @Html.ValidationMessageFor(u => u.DataFim, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    @Html.LabelFor(u => u.Tipo, htmlAttributes: new { @class = "control-label" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(u => u.Tipo, new { htmlAttributes = new { @placeholder = "Tipo do Livro", @class = "form-control" } })
+                                        @Html.ValidationMessageFor(u => u.Tipo, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    @Html.LabelFor(u => u.Nota, htmlAttributes: new { @class = "control-label" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(u => u.Nota, new { htmlAttributes = new { @placeholder = "Nota do Livro", @class = "form-control" } })
+                                        @Html.ValidationMessageFor(u => u.Nota, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <input type="submit" value="Cadastrar" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </form>
+                }
+            </div>
+        </div>
+    </section>
+</div>
